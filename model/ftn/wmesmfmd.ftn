@@ -10,13 +10,13 @@
 !/ ------------------------------------------------------------------- /
 !/ Define real kind for data passed through ESMF interface
 !/
-#if defined(ESMF_R8)
+!#if defined(ESMF_R8)
 #define ESMF_KIND_RX ESMF_KIND_R8
 #define ESMF_TYPEKIND_RX ESMF_TYPEKIND_R8
-#else
-#define ESMF_KIND_RX ESMF_KIND_R4
-#define ESMF_TYPEKIND_RX ESMF_TYPEKIND_R4
-#endif
+!#else
+!#define ESMF_KIND_RX ESMF_KIND_R4
+!#define ESMF_TYPEKIND_RX ESMF_TYPEKIND_R4
+!#endif
 !/
 !/ ------------------------------------------------------------------- /
 !/ Macro for enabling using W3OUTG to calculate export fields
