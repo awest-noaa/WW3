@@ -187,8 +187,8 @@ gout:
              -e "s/NOGRB/NCEP2 NCO/g"\
                   $(WW3_BINDIR)/tempswitch > $(WW3_BINDIR)/switch
 	\rm -f $(WW3_BINDIR)/tempswitch
-	$(WW3_BINDIR)/w3_make ww3_grib
-        $(WW3_BINDIR)/w3_make ww3_bound
+	#$(WW3_BINDIR)/w3_make ww3_grib
+	$(WW3_BINDIR)/w3_make ww3_bound
 	\rm -rf $(WW3_BASEDIR)/exec
 	\mkdir -p $(WW3_BASEDIR)/exec
 	\cp -f $(WW3_EXEDIR)/ww3_* $(WW3_BASEDIR)/exec
