@@ -4810,7 +4810,7 @@
 !/
       character(ESMF_MAXSTR) :: cname
       character(500) :: msg
-      integer :: i, j, k, ir, ip, count
+      integer :: i, j, k, ir, ip, count, idlo, idhi
       real(ESMF_KIND_RX) :: floc(n1,n2)
       real(ESMF_KIND_RX) :: floc1d(n1), floc1dary(n1*n2)
 !/PDLIB      real(ESMF_KIND_R8), pointer :: fldptr(:)
