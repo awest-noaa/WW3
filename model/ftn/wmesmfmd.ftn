@@ -2302,7 +2302,7 @@
 !/WRST            wy0 = WYNwrst  
 !/WRST            if (ESMF_LogFoundError(rc, PASSTHRU)) return
 !/WRST          enddo
-!/WRST        endif
+        endif
     
 !/WRST       if ( ((twn(1)-tw0(1))*1000000+((twn(2)-tw0(2)))) .le. 0  ) then 
 !/WRST        !If the time of the field is still initial time, replace
@@ -4855,15 +4855,17 @@
           fout(k,1) = floc1d(k)
         enddo
 !/PDLIB      else
-!/PDLIB         count = 0
+!/PDLIB         idlo = 1
 !/PDLIB         do ir = 1, npet
-!/PDLIB           do ip = 1, rank(ir)%np
-!/PDLIB             count = count+1
-!/PDLIB             fout(rank(ir)%iplg(ip),1) = floc1d(count)
+!/PDLIB!           do ip = 1, rank(ir)%np
+!/PDLIB!             count = count+1
+!/PDLIB             idhi = idlo + rank(ir)%np - 1
+!/PDLIB             fout(rank(ir)%iplg(1:rank(ir)%np),1) = floc1d(idlo:idhi)
 !/PDLIB!             write(msg,*) trim(cname)//': count,ir,ip =',count, &
 !/PDLIB!                ir,ip
 !/PDLIB!             call ESMF_LogWrite(trim(msg), ESMF_LOGMSG_INFO)
-!/PDLIB           enddo
+!/PDLIB             idlo = idhi + 1
+!/PDLIB!           enddo
 !/PDLIB         enddo
 !/PDLIB      endif
 
