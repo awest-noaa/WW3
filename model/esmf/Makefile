@@ -10,7 +10,13 @@ WW3_EXEDIR := $(WW3_DIR)/exe
 WW3_COMP ?= gnu
 WW3_CC := gcc
 WW3_F90 := gfortran
-SWITCHES := $(shell cat switch)
+# structured mode
+ifeq ($(METIS_PATH),"")
+ SWITCHES := $(shell cat switch)
+# unstructured mode
+else
+ SWITCHES := $(shell cat switch.metis)
+endif
 
 WWATCH3_ENV := $(WW3_BINDIR)/wwatch3.env
 WWATCH3_NETCDF := NC4
